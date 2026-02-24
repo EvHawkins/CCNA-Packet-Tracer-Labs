@@ -10,4 +10,103 @@ Configure VLANs and trunking between switches.
 - Switchport configuration
 
 ## Topology
-<img width="1034" height="505" alt="Screenshot 2026-02-22 at 4 12 25 PM" src="https://github.com/user-attachments/assets/f20c3cc4-7d96-4eab-87d4-10cedc145d0a" />
+<img width="793" height="433" alt="Topology" src="https://github.com/user-attachments/assets/81dfc5e5-9dde-44f0-8adb-44796a3a1042" />
+
+## Step 1: Create Vlans on each switch.
+
+enable
+
+conf t
+
+vlan 10
+name SALES
+
+vlan 20
+name HR
+
+vlan 30
+name IT
+
+## Vlans seperate traffic. Even if all PC's are connected to one switch, they wont be able to communicate unless routing happens.
+
+## Step 2: Assign access ports.
+
+int fa 0/1
+
+switchport mode access
+
+switchport acces vlan 10
+
+int fa 0/2
+
+switchport mode access
+
+switchport access vlan 20
+
+int fa 0/3
+
+switchport mode access
+
+switchport access vlan 30
+
+## This configures each port to it's own vlan, making the port belong only to that vlan.
+
+## Step 4: Configure trunk ports
+
+SW1(to SW2)
+
+int fa 0/4 
+
+switchport mode trunk
+
+SW2(to SW1)
+
+int fa 0/4
+
+switchport mode trunk
+
+SW2(to R1)
+
+int gig 0/2
+
+switchport mode trunk
+
+## This allows multiple vlans to travel over one cable.
+
+<img width="1440" height="478" alt="Vlan&#39;s and Trunk" src="https://github.com/user-attachments/assets/7d355f60-619f-416a-a821-8ddc72213d8a" />
+
+## Step 5: Configure router sub-interfaces
+
+enable
+
+conf t
+
+int gig 0/0/0
+
+no shut
+
+int gig 0/0/0.10
+
+encapsulate dot1q 10
+
+ip address 192.168.10.1 255.255.255.0
+
+int gig 0/0/0.20
+
+encapsulate dot1q 20
+
+ip address 192.168.20.1 255.255.255.0
+
+int gig 0/0/0.30
+
+encapsulate dot1q 30
+
+ip address 192.168.30.1 255.255.255.0
+
+## This allows port gig 0/0/0 to act as multiple virtual interfaces, each assigned to a different vlan. "encapuslate dot1q" tells the router to expect vlan tagged traffic.
+
+<img width="750" height="755" alt="Sub Interfaces" src="https://github.com/user-attachments/assets/eec3ca1a-21f1-4420-b13e-d17460e0ee99" />
+
+
+
+

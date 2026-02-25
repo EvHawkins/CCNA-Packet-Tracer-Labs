@@ -141,7 +141,7 @@ Gateway 192.168.30.1
 
 ### The gateway is the routers sub-interface for the vlan. Now if a PC needs to talk to another vlan, it will send traffic to the router, the router routes it, and then sends it to the correct vlan.
 
-# Step 7: Test connectivity
+## Step 7: Test connectivity
 
 From a Vlan 10 PC:
 

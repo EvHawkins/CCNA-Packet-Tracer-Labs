@@ -6,9 +6,7 @@ This repository contains hands-on networking labs built using Cisco Packet Trace
 
 - VLAN Configuration
 - Inter-VLAN Routing
-- Static Routing
 - OSPF
-- EIGRP
 - NAT
 - ACLs
 - DHCP

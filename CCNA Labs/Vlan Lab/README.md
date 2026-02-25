@@ -110,7 +110,7 @@ ip address 192.168.30.1 255.255.255.0
 
 <img width="750" height="755" alt="Sub Interfaces" src="https://github.com/user-attachments/assets/eec3ca1a-21f1-4420-b13e-d17460e0ee99" />
 
-# Step 6: Configure IP address on PCs.
+## Step 6: Configure IP address on PCs.
 
 Vlan 10 PCs
 

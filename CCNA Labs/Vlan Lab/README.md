@@ -141,6 +141,18 @@ Gateway 192.168.30.1
 
 ### The gateway is the routers sub-interface for the vlan. Now if a PC needs to talk to another vlan, it will send traffic to the router, the router routes it, and then sends it to the correct vlan.
 
+# Step 7: Test connectivity
+
+From a Vlan 10 PC:
+
+ping 192.168.20.10
+
+ping 192.168.30.10
+
+
+<img width="746" height="754" alt="Verify Ping" src="https://github.com/user-attachments/assets/65e0eacd-3c09-4d23-a63d-88c086076996" />
+
+### If the pings are successful, the inter-vlan routing works.
 
 
 

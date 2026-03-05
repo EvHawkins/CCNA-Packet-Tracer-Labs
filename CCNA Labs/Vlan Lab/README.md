@@ -12,7 +12,7 @@ Configure VLANs and trunking between switches.
 ## Topology
 <img width="793" height="433" alt="Topology" src="https://github.com/user-attachments/assets/81dfc5e5-9dde-44f0-8adb-44796a3a1042" />
 
-## Step 1: Create Vlans on each switch.
+## Step 1: Create Vlans On Each Switch.
 
 enable
 
@@ -32,7 +32,7 @@ name IT
 
 ### Vlans seperate traffic. Even if all PC's are connected to one switch, they wont be able to communicate unless routing happens.
 
-## Step 2: Assign access ports.
+## Step 2: Assign Access Ports.
 
 int fa 0/1
 
@@ -54,7 +54,7 @@ switchport access vlan 30
 
 ### This configures each port to it's own vlan, making the port belong only to that vlan.
 
-## Step 4: Configure trunk ports
+## Step 4: Configure Trunk Ports
 
 SW1(to SW2)
 
@@ -78,7 +78,7 @@ switchport mode trunk
 
 <img width="1440" height="478" alt="Vlan&#39;s and Trunk" src="https://github.com/user-attachments/assets/7d355f60-619f-416a-a821-8ddc72213d8a" />
 
-## Step 5: Configure router sub-interfaces
+## Step 5: Configure Router Sub-Interfaces
 
 enable
 
@@ -110,7 +110,7 @@ ip address 192.168.30.1 255.255.255.0
 
 <img width="750" height="755" alt="Sub Interfaces" src="https://github.com/user-attachments/assets/eec3ca1a-21f1-4420-b13e-d17460e0ee99" />
 
-## Step 6: Configure IP address on PCs.
+## Step 6: Configure IP Address On PCs.
 
 Vlan 10 PCs
 
@@ -141,7 +141,7 @@ Gateway 192.168.30.1
 
 ### The gateway is the routers sub-interface for the vlan. Now if a PC needs to talk to another vlan, it will send traffic to the router, the router routes it, and then sends it to the correct vlan.
 
-## Step 7: Test connectivity
+## Step 7: Test Connectivity
 
 From a Vlan 10 PC:
 

@@ -11,7 +11,7 @@ Configure Multi-area OSPF network with a backbone area 0 and two branch areas.
 ## Topology
 <img width="730" height="397" alt="Topology" src="https://github.com/user-attachments/assets/3df33291-b91b-4f13-804e-9c6c25727405" />
 
-## Step 1: Configure interface IP address
+## Step 1: Configure Interface IP address
 
 #### R1
 
@@ -167,7 +167,7 @@ ping 192.168.20.20
 
 ### If the pings are successful that means OSPF is working.
 
-## Step 5: Configure Passive interfaces.
+## Step 5: Configure Passive Interfaces.
 
 #### R1:
 

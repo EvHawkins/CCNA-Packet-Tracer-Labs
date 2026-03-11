@@ -159,9 +159,13 @@ ip helper-address 10.0.12.1
 
 ## Step 8: Verify DHCP on R1
 
+### R1
+
 show ip dhcp binding
 
 <img width="698" height="664" alt="DHCP Binding Table" src="https://github.com/user-attachments/assets/a6d614c9-6672-43bc-95de-602779cd5fcd" />
+
+### This shows which devices recieved which addresses and active leases.
 
 
 

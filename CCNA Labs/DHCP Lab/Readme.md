@@ -119,6 +119,48 @@ dns-server 8.8.8.8
 <img width="743" height="752" alt="Screenshot 2026-03-09 at 1 26 00 PM" src="https://github.com/user-attachments/assets/6f78fd27-78cd-44d0-afd6-d1ad4f3af662" />
 
 
+### DHCP clients go through the process know as "DORA". This is discover, offer, request, and acknowledge. The DHCP client sends out a message to locate or "discover" any available DHCP servers. The DHCP server then responds or "offers" an available IP address and configuration details. The DHCP client selects the offer and then formally puts in a "request" to use that IP address. The DHCP server will then "acknowledge" the request and finalize the lease of the IP address.
+
+## Step 5: Configure an IP address on an interface using DHCP
+
+### R2
+
+conf t
+
+int gig 0/0
+
+ip address dhcp
+
+<img width="742" height="283" alt="Interface DHCP" src="https://github.com/user-attachments/assets/db9eee48-bbdf-412c-a4c0-373e1dcf1d12" />
+
+## Step 6: Configure R2 as a relay agent for the 192.168.20.0 network
+
+### R2
+
+conf t
+
+int gig 0/1
+
+ip helper-address 10.0.12.1
+
+### R2 will now forward DHCP broadcast messages from clients to a DHCP server on a different subnet or network.
+
+## Step 7: Configure PC's on the 192.168.20.0 network to use DHCP
+
+### Repeat same process as in Step 4
+
+### PC5
+
+<img width="747" height="712" alt="Relay Verify 1" src="https://github.com/user-attachments/assets/e8b0532b-549d-4a93-b847-7d922ff56a8a" />
+
+### PC6
+
+<img width="748" height="753" alt="PC relay verify 2" src="https://github.com/user-attachments/assets/11a21132-a7c7-4184-8d9a-528e68e3d041" />
+
+
+
+
+
 
 
 

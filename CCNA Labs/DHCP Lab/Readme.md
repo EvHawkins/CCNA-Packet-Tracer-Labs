@@ -157,6 +157,15 @@ ip helper-address 10.0.12.1
 
 <img width="748" height="753" alt="PC relay verify 2" src="https://github.com/user-attachments/assets/11a21132-a7c7-4184-8d9a-528e68e3d041" />
 
+## Step 8: Verify DHCP on R1
+
+show ip dhcp binding
+
+<img width="698" height="664" alt="DHCP Binding Table" src="https://github.com/user-attachments/assets/a6d614c9-6672-43bc-95de-602779cd5fcd" />
+
+
+
+
 
 
 

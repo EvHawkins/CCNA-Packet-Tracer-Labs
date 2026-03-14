@@ -3,7 +3,7 @@
 ## Objective
 Configure VLANs and trunking between switches.
 
-## Skills Demonstrated
+## Skills Show In This Lab
 - VLAN creation
 - Trunk configuration (802.1Q)
 - Inter-VLAN routing

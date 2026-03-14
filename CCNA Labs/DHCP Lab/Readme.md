@@ -5,7 +5,7 @@
 Build a small network where a router provides DHCP services to automatically assign IP address to client devices
 
 
-## Skills Demonstrated
+## Skills Shown In This Lab
 
 - DHCP client configuration
 - DHCP relay configuration

@@ -3,7 +3,7 @@
 ## Objective
 Configure Multi-area OSPF network with a backbone area 0 and two branch areas.
 
-## Skills Demonstracted
+## Skills Shown In This Lab
 - OSPF single-area and multi-area configuration
 - Router IDs and passive interfaces
 - Basic network verification

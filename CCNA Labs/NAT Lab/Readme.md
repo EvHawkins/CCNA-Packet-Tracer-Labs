@@ -5,7 +5,7 @@
 - Use Network address translation (NAT) to route private IPs to the public internet
 - Use Port address translation (PAT) to share one public IP and use port numbers to track sessions
 
-## Skills Demonstrated
+## Skills Show In This Lab
 - Inisde vs outside interface roles
 - Dynamic NAT with overload (PAT)
 - ACL based NAT matching

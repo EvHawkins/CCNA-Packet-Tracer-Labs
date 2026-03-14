@@ -18,7 +18,3 @@ This repository contains hands-on networking labs built using Cisco Packet Trace
 - Cisco Packet Tracer
 - CLI Configuration
 - TCP/IP Networking
-
-## About Me
-
-Aspiring Network Engineer with hands-on CCNA-level lab experience.

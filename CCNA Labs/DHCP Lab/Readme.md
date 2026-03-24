@@ -36,7 +36,7 @@ Build a small network where a router provides DHCP services to automatically ass
 - ip address 192.168.20.1 255.255.255.0
 - no shut
 
-### Configuring each router to act as default gateway to client PC's on their respective networks
+#### Configuring each router to act as default gateway to client PC's on their respective networks
 
 ## Step 2: Exclude Reserved Addresses
 
@@ -47,45 +47,31 @@ Build a small network where a router provides DHCP services to automatically ass
 - ip dhcp excluded-address 192.168.20.1 192.168.20.10
 - ip dhcp exluded-address 10.0.12.1
 
-### This reserves addresses for other devices such as routers, servers, printers, etc. This also prevents DHCP from assigning addresses already in use by other devices such as the routers default gateway.
+#### This reserves addresses for other devices such as routers, servers, printers, etc. This also prevents DHCP from assigning addresses already in use by other devices such as the routers default gateway.
 
 
 ## Step 3: Create The DHCP Pools on R1
 
-conf t
-
-ip dhcp pool 1
-
-network 192.168.10.0 255.255.255.0
-
-default-router 192.168.10.1
-
-dns-server 8.8.8.8
-
-exit
-
-ip dchp pool 2
-
-network 192.168.20.0 255.255.255.0
-
-default-router 192.168.20.0
-
-dns-server 8.8.8.8
-
-exit
-
-ip dhcp pool 3
-
-network 10.0.12.0
-
-default-router 10.0.12.1 255.255.255.252
-
-dns-server 8.8.8.8
+- conf t
+- ip dhcp pool 1
+- network 192.168.10.0 255.255.255.0
+- default-router 192.168.10.1
+- dns-server 8.8.8.8
+- exit
+- ip dchp pool 2
+- network 192.168.20.0 255.255.255.0
+- default-router 192.168.20.0
+- dns-server 8.8.8.8
+- exit
+- ip dhcp pool 3
+- network 10.0.12.0
+- default-router 10.0.12.1 255.255.255.252
+- dns-server 8.8.8.8
 
 <img width="745" height="750" alt="DHCP Pool" src="https://github.com/user-attachments/assets/b3f5089f-ba5a-426b-a3e5-021d7f22be9f" />
 
 
-### DHCP pools tell the router which network to assign assign IP addresses from, what gateway the clients should use, and which DNS server to use.
+#### DHCP pools tell the router which network to assign assign IP addresses from, what gateway the clients should use, and which DNS server to use.
 
 ## Step 4: Configure PC's on the 192.168.10.0 network to use DHCP
 
@@ -101,22 +87,20 @@ dns-server 8.8.8.8
 
 <img width="748" height="753" alt="DHCP Router Verify" src="https://github.com/user-attachments/assets/e3f81486-1ed8-470e-a16c-3e1bff234224" />
 
-### Alternatively you can use the /renew from the command prompt to have the DHCP client request a new IP address from the router.
+#### Alternatively you can use the /renew from the command prompt to have the DHCP client request a new IP address from the router.
 
 <img width="743" height="752" alt="Screenshot 2026-03-09 at 1 26 00 PM" src="https://github.com/user-attachments/assets/6f78fd27-78cd-44d0-afd6-d1ad4f3af662" />
 
 
-### DHCP clients go through a process know as "DORA". This is discover, offer, request, and acknowledge. The DHCP client sends out a message to locate or "discover" any available DHCP servers. The DHCP server then responds or "offers" an available IP address and configuration details. The DHCP client selects the offer and then formally puts in a "request" to use that IP address. The DHCP server will then "acknowledge" the request and finalize the lease of the IP address.
+#### DHCP clients go through a process know as "DORA". This is discover, offer, request, and acknowledge. The DHCP client sends out a message to locate or "discover" any available DHCP servers. The DHCP server then responds or "offers" an available IP address and configuration details. The DHCP client selects the offer and then formally puts in a "request" to use that IP address. The DHCP server will then "acknowledge" the request and finalize the lease of the IP address.
 
 ## Step 5: Configure an IP address on an interface using DHCP
 
 ### R2
 
-conf t
-
-int gig 0/0
-
-ip address dhcp
+- conf t
+- int gig 0/0
+- ip address dhcp
 
 <img width="742" height="283" alt="Interface DHCP" src="https://github.com/user-attachments/assets/db9eee48-bbdf-412c-a4c0-373e1dcf1d12" />
 
@@ -124,13 +108,11 @@ ip address dhcp
 
 ### R2
 
-conf t
+- conf t
+- int gig 0/1
+- ip helper-address 10.0.12.1
 
-int gig 0/1
-
-ip helper-address 10.0.12.1
-
-### R2 will now forward DHCP broadcast messages from clients to a DHCP server on a different subnet or network.
+#### R2 will now forward DHCP broadcast messages from clients to a DHCP server on a different subnet or network.
 
 ## Step 7: Configure PC's on the 192.168.20.0 network to use DHCP
 
@@ -147,12 +129,11 @@ ip helper-address 10.0.12.1
 ## Step 8: Verify DHCP on R1
 
 ### R1
-
-show ip dhcp binding
+- show ip dhcp binding
 
 <img width="698" height="664" alt="DHCP Binding Table" src="https://github.com/user-attachments/assets/a6d614c9-6672-43bc-95de-602779cd5fcd" />
 
-### This shows which devices recieved which addresses and active leases.
+#### This shows which devices recieved which addresses and active leases.
 
 
 

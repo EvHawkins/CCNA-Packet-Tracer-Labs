@@ -16,7 +16,7 @@ Configure Multi-area OSPF network with a backbone area 0 and two branch areas.
 #### R1
 
 - enable
-- conf T
+- conf t
 - interface gig 0/0
 - ip address 10.0.12.1 255.255.255.252
 - no shut

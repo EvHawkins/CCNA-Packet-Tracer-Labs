@@ -20,31 +20,21 @@ Build a small network where a router provides DHCP services to automatically ass
 
  #### R1
 
- enable 
-
- conf t
-
- int gig 0/0
-
- ip address 192.168.10.1 255.255.255.0
-
- no shut
-
- int gig 0/1
-
- ip address 10.0.12.1 255.255.255.252
-
- no shut
+- enable
+- conf t
+- int gig 0/0
+- ip address 192.168.10.1 255.255.255.0
+- no shut
+- int gig 0/1
+- ip address 10.0.12.1 255.255.255.252
+- no shut
 
  #### R2
 
- enable
-
- int gig 0/1
-
- ip address 192.168.20.1 255.255.255.0
-
- no shut
+- enable
+- int gig 0/1
+- ip address 192.168.20.1 255.255.255.0
+- no shut
 
 ### Configuring each router to act as default gateway to client PC's on their respective networks
 
@@ -52,13 +42,10 @@ Build a small network where a router provides DHCP services to automatically ass
 
 ### R1
 
-conf t
-
-ip dhcp excluded-address 192.168.10.1 192.168.10.10
-
-ip dhcp excluded-address 192.168.20.1 192.168.20.10
-
-ip dhcp exluded-address 10.0.12.1
+- conf t
+- ip dhcp excluded-address 192.168.10.1 192.168.10.10
+- ip dhcp excluded-address 192.168.20.1 192.168.20.10
+- ip dhcp exluded-address 10.0.12.1
 
 ### This reserves addresses for other devices such as routers, servers, printers, etc. This also prevents DHCP from assigning addresses already in use by other devices such as the routers default gateway.
 
